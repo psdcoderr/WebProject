@@ -16,13 +16,21 @@ export default function Signin() {
     };
 
     const login = async () => {
-        const user = dataCred.find(user => user.id === id); 
-        if (user && user.password === password) {
-            console.log('Yes');
-        } else {
-            console.log('No');
-        }
-    };
+      console.log("Data Credentials:", dataCred);
+      console.log("Input ID:", id);
+      console.log("Input Password:", password);
+  
+      const user = dataCred.find(user => user.email === id); 
+      console.log("User found:", user);
+      console.log("User ID:", user ? user.id : "No user found"); // Log the user ID if user is found, otherwise indicate no user found
+  
+      if (user && user.password === password) {
+          console.log('Yes');
+      } else {
+          console.log('No');
+      }
+  };
+  
 
     useEffect(() => {
         GetCredentials();
