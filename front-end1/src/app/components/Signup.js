@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ShowData from './ShowData';
+
 
 export default function Signup() {
 
   const API_BASE = 'http://localhost:4002/users';
 
-  const [id, setId] = useState('');
+  const [emailid, setEmailId] = useState('');
   
   const [password, setpassword] = useState('');
   
@@ -23,40 +23,39 @@ export default function Signup() {
     setFirstName(event.target.value);
   }
 
-
   const handlePhoneChange = (event) =>{
     setPhoneno(event.target.value);
   }
-  const handleIdChange = (event) => {
-    setId(event.target.value);
+  const handleEmailIdChange = (event) => {
+    setEmailId(event.target.value);
   };
 
   const handlepasswordChange = (event) => {
     setpassword(event.target.value);
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     // POST data to the API
-    try{
+    try {
       const response = await fetch(API_BASE, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id, password, phoneno }),
+        body: JSON.stringify({ phoneno, FirstName, LastName, emailid, password }),
       });
-    
+  
       if (response.ok) {
-        console.log('ok');
+        console.log('Data stored successfully.');
       } else {
-        console.log('not ok:', response.status);
+        console.log('Error:', response.status);
       }
-
-    }catch(error){
-      console.log('error');
+    } catch (error) {
+      console.log('Error:', error.message);
     }
   };
+  
   
 
   return (
@@ -68,6 +67,7 @@ export default function Signup() {
 
         <div class="Signup-page">
           <div class="container Signup-Form-Design">
+
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="fname" placeholder="First Name" value={FirstName} onChange={handleFirstNameChange}/>
               <label for="fname">First Name</label>
@@ -79,7 +79,7 @@ export default function Signup() {
             </div>
 
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="id" placeholder="ID" value={id} onChange={handleIdChange}/>
+              <input type="text" class="form-control" id="id" placeholder="ID" value={emailid} onChange={handleEmailIdChange}/>
               <label for="id">ID</label>
             </div>
 

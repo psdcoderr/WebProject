@@ -2,6 +2,7 @@
 
 import Navbar from "./components/navbar";
 import Signup from "./components/Signup";
+import Signin from "./components/Signin";
 import Mainpage from "./components/Mainpage";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
@@ -34,7 +35,12 @@ export default function Home() {
   
   return (
     <>
-      <Signup/>
+
+      <Signin/>
+
+
+      {/* Complete */}
+      {/* <Signup/> */}
       
       <Router>
         <Routes>

@@ -8,7 +8,10 @@ Content-Type: application/json
 
 {
     "email":"gvbj@gmail.com",
-    "password":"212442121"
+    "password":"212442121",
+    "firstname":"Moiz",
+    "lastname":"uddin",
+    "phoneno":"03204905127"
 }
 
 GET http://localhost:4002/users
