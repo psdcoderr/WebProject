@@ -11,9 +11,22 @@ router.post('/', async (req, res) => {
         res.send(result);
     } catch (error) {
         console.log(error.message);
-        res.status(500).send("Server Error");
+        res.status(500).send("Server Error. Create");
     }
 });
+
+// For getting all users
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.send(users);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send("Server Error. Get request all");
+    }
+});
+
+
 
 // For getting a single user
 router.get('/:id', async (req, res) => {

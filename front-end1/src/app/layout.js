@@ -1,4 +1,4 @@
-import '../../.next/static/css/app/bootstrap.css'
+import "../../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.css"
 
 import { Inter } from "next/font/google";
 import "./globals.css";

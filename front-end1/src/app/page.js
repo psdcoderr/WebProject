@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 
 // Give server.js port and route.
-const API_BASE = 'http://localhost:4001/todo';
+const API_BASE = 'http://localhost:4002/users';
 
 export default function Home() {
 
