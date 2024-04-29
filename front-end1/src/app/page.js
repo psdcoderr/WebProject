@@ -4,7 +4,7 @@ import Navbar from "./components/navbar";
 import Signup from "./components/Signup";
 import Signin from "./components/Signin";
 import Mainpage from "./components/Mainpage";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Switch } from 'react-router-dom';
 import { useEffect, useState } from "react";
 
 // Give server.js port and route.
@@ -36,17 +36,19 @@ export default function Home() {
   return (
     <>
 
-      <Signin/>
+      <Signup/>
 
-
-      {/* Complete */}
-      {/* <Signup/> */}
-      
-      <Router>
+      {/* <Router>
+        <Routes>
+          <Route path="/" element={<Signin/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/Signup" element={<Signup/>}/>
+        </Routes>
         <Routes>
           <Route path="/Mainpage" element={<Mainpage setItems={setItems} items={items} />} />
         </Routes>
-      </Router>
+      </Router> */}
     </>
   );
 }

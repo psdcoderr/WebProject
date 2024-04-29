@@ -5,8 +5,9 @@ const User = require('../models/cred.model');
 // For creating a new user
 router.post('/', async (req, res) => {
     try {
-        console.log(req.body);
         const user = new User(req.body);
+        console.log("Data sent:");
+        console.log(req.body);
         const result = await user.save();
         res.send(result);
     } catch (error) {

@@ -43,11 +43,12 @@ export default function Signup() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ phoneno, FirstName, LastName, emailid, password }),
+        body: JSON.stringify({ FirstName, LastName, phoneno, emailid , password}),
       });
   
       if (response.ok) {
         console.log('Data stored successfully.');
+        console.log(response);
       } else {
         console.log('Error:', response.status);
       }

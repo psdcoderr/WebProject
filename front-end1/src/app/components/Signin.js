@@ -1,8 +1,9 @@
+// Signin.js
 import React, { useEffect, useState } from 'react';
+// import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 export default function Signin() {
     const API_BASE = 'http://localhost:4002/users';
-
     const [dataCred, setDataCred] = useState([]);
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
@@ -16,35 +17,12 @@ export default function Signin() {
     };
 
     const login = async () => {
-      console.log("Data Credentials:", dataCred);
-      console.log("Input ID:", id);
-      console.log("Input Password:", password);
-  
-      const user = dataCred.find(user => user.email === id); 
-      console.log("User found:", user);
-      console.log("User ID:", user ? user.id : "No user found"); // Log the user ID if user is found, otherwise indicate no user found
-  
-      if (user && user.password === password) {
-          console.log('Yes');
-      } else {
-          console.log('No');
-      }
-  };
-  
-
-    useEffect(() => {
-        GetCredentials();
-    }, []);
-
-    const GetCredentials = () => {
-        fetch(API_BASE)
-            .then(res => res.json())
-            .then(data => {
-                setDataCred(data);
-                // To check data being retrieved or not.
-                console.log(data);
-            })
-            .catch(err => console.log(err))
+        const user = dataCred.find(user => user.email === id);
+        if (user && user.password === password) {
+            console.log('Yes');
+        } else {
+            console.log('No');
+        }
     };
 
     return (
@@ -60,6 +38,9 @@ export default function Signin() {
                         <label htmlFor="password">Password</label>
                     </div>
                     <button onClick={login}>Login</button>
+                    {/* <button className="button">
+                        <Link className="linkxxx" to="/Signup">Sign Up</Link>
+                    </button> */}
                 </div>
             </div>
         </div>
