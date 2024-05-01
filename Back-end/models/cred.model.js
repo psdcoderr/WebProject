@@ -19,6 +19,7 @@ const UserSchema = new Schema({
     }
 })
 
+
 const User = mongoose.model('Credential', UserSchema)
 
 module.exports = User

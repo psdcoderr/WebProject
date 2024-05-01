@@ -36,9 +36,7 @@ export default function Home() {
   return (
     <>
 
-      <Signup/>
-
-      {/* <Router>
+      <Router>
         <Routes>
           <Route path="/" element={<Signin/>}/>
         </Routes>
@@ -48,7 +46,7 @@ export default function Home() {
         <Routes>
           <Route path="/Mainpage" element={<Mainpage setItems={setItems} items={items} />} />
         </Routes>
-      </Router> */}
+      </Router> 
     </>
   );
 }
