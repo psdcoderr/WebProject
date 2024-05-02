@@ -1,6 +1,7 @@
 // Signin.js
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link , useNavigate} from 'react-router-dom';
+import Mainpage from './Mainpage';
 
 export default function Signin() {
 
@@ -10,6 +11,8 @@ export default function Signin() {
     const [emailid, setemailId] = useState('');
     const [password, setPassword] = useState('');
   
+    const navigate = useNavigate(); // Hook to navigate programmatically
+
     useEffect(() => {
         GetTodos();
     }, []);
@@ -37,15 +40,29 @@ export default function Signin() {
         setPassword(event.target.value);
     };
 
+
     const login = async () => {
-        const user = dataCred.find(user => user.emailid === emailid);
-        
-        if (user && user.password === password) {
-            console.log('Yes');
-        } else {
-            console.log('No');
+        try {
+            const response = await fetch(`${API_BASE}/signin`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ emailid, password }),
+            });
+    
+            if (response.ok) {
+                // Authentication successful, redirect to Mainpage
+                navigate('/Mainpage');
+            } else {
+                const data = await response.json();
+                alert(data.message);
+            }
+        } catch (error) {
+            console.log('Error:', error.message);
         }
     };
+    
 
     return (
         <div>
