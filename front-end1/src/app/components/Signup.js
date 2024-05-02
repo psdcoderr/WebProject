@@ -15,6 +15,8 @@ export default function Signup() {
 
   const [LastName,setLastName] = useState('');
 
+  const [role, setRole] = useState('');
+
   const handleLastNameChange = (event) =>{
     setLastName(event.target.value);
   }
@@ -33,6 +35,10 @@ export default function Signup() {
   const handlepasswordChange = (event) => {
     setpassword(event.target.value);
   };
+
+  const handleRoleChange = (event) => {
+    setRole(event.target.value);
+  };
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +49,7 @@ export default function Signup() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ FirstName, LastName, phoneno, emailid , password}),
+        body: JSON.stringify({ FirstName, LastName, phoneno, emailid , password, role}),
       });
   
       if (response.ok) {
@@ -92,6 +98,11 @@ export default function Signup() {
             <div class="form-floating mb-3">
               <input type="tel" id="phone" class="form-control" name="phone" placeholder="Phone" value={phoneno} onChange={handlePhoneChange} pattern="\+[0-9]{2}-[0-9]{3}-[0-9]{6}"  />
               <label for="phone">Phone No:</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" id="role" class="form-control" name="role" placeholder="Role" value={role} onChange={handleRoleChange} />
+              <label for="phone">Role: </label>
             </div>
 
             <button onClick={handleSubmit}>Send</button>

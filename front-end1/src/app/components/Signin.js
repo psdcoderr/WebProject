@@ -40,6 +40,16 @@ export default function Signin() {
         setPassword(event.target.value);
     };
 
+    // const login = async () => {
+    //     const user = dataCred.find(user => user.emailid === emailid);
+        
+    //     if (user && user.password === password) {
+    //          // Redirect to Mainpage upon successful login
+    //          navigate('/Mainpage');
+    //     } else {
+    //         alert("Invalid email or password!");
+    //     }
+    // };
 
     const login = async () => {
         try {
@@ -52,8 +62,25 @@ export default function Signin() {
             });
     
             if (response.ok) {
-                // Authentication successful, redirect to Mainpage
-                navigate('/Mainpage');
+                const data = await response.json();
+                // Determine redirection based on user role
+                switch (data.role) {
+                    case 'society':
+                        navigate('/Mainpage');
+                        break;
+                    case 'management':
+                        navigate('/Management');
+                        break;
+                    case 'mentor':
+                        navigate('/Mentor');
+                        break;
+                    default:
+                        // Redirect to default page if role is not recognized
+                        navigate('/DefaultPage');
+                        break;
+                }
+                // Store role in localStorage or state for future use
+                localStorage.setItem('role', data.role);
             } else {
                 const data = await response.json();
                 alert(data.message);
@@ -62,6 +89,7 @@ export default function Signin() {
             console.log('Error:', error.message);
         }
     };
+    
     
 
     return (

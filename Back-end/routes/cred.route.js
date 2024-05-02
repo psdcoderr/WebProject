@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/cred.model');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 // For creating a new user
 router.post('/', async (req, res) => {
@@ -69,6 +70,31 @@ router.patch('/:id', async (req, res) => {
 });
 
 // Signin route
+// router.post('/signin', async (req, res) => {
+//     try {
+//         const { emailid, password } = req.body;
+//         const user = await User.findOne({ emailid });
+        
+//         if (!user) {
+//             return res.status(401).json({ message: 'Invalid email or password' });
+//         }
+
+//         const match = await bcrypt.compare(password, user.password);
+//         if (match) {
+//             // Passwords match, authentication successful
+//             res.json({ message: 'Authentication successful' });
+//         } else {
+//             // Passwords don't match, authentication failed
+//             res.status(401).json({ message: 'Invalid email or password' });
+//         }
+//     } catch (error) {
+//         console.log(error.message);
+//         res.status(500).send("Server Error. Signin");
+//     }
+// });
+
+
+// Signin route
 router.post('/signin', async (req, res) => {
     try {
         const { emailid, password } = req.body;
@@ -81,7 +107,7 @@ router.post('/signin', async (req, res) => {
         const match = await bcrypt.compare(password, user.password);
         if (match) {
             // Passwords match, authentication successful
-            res.json({ message: 'Authentication successful' });
+            res.json({ message: 'Authentication successful', role: user.role });
         } else {
             // Passwords don't match, authentication failed
             res.status(401).json({ message: 'Invalid email or password' });

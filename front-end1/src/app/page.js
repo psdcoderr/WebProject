@@ -6,6 +6,8 @@ import Signin from "./components/Signin";
 import Mainpage from "./components/Mainpage";
 import { BrowserRouter as Router, Route, Routes, Link, Switch } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import Management from "./components/Management";
+import Society from "./components/Society";
 
 // Give server.js port and route.
 const API_BASE = 'http://localhost:4002/users';
@@ -39,6 +41,12 @@ export default function Home() {
       <Router>
         <Routes>
           <Route path="/" element={<Signin/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/Management" element={<Management/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/Mentor" element={<Society/>}/>
         </Routes>
         <Routes>
           <Route path="/Signup" element={<Signup/>}/>

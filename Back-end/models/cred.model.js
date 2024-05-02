@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    FirstName:{
+    FirstName: {
         type: String
     },
-    LastName:{
+    LastName: {
         type: String
     },
-    phoneno:{
+    phoneno: {
         type: String
     },
     emailid: {
@@ -16,10 +16,14 @@ const UserSchema = new Schema({
     },
     password: {
         type: String
+    },
+    role: {
+        type: String,
+        enum: ['society', 'management', 'mentor'], // Add more roles as needed
+        default: 'society' // Set a default role if needed
     }
-})
+});
 
+const User = mongoose.model('Credential', UserSchema);
 
-const User = mongoose.model('Credential', UserSchema)
-
-module.exports = User
+module.exports = User;
