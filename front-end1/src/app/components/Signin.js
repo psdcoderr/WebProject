@@ -93,23 +93,34 @@ export default function Signin() {
     
 
     return (
-        <div>
-            <div className="Signin-page">
-                <div className="container Signin-Form-Design">
-                    <div className="form-floating mb-3">
-                        <input type="text" className="form-control" id="id" placeholder="ID" value={emailid} onChange={handleemailIdChange} />
-                        <label htmlFor="id">ID</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-                        <label htmlFor="password">Password</label>
-                    </div>
-                    <button onClick={login}>Login</button>
-                    <button className="button">
-                        <Link className="linkxxx" to="/Signup">Sign Up</Link>
-                    </button>
+        <div className="container">
+          <div className="title">Signin</div>
+          <div className="content">
+            <div className="user-details">
+              <div className="input-box">
+                <span className="details">Email</span>
+                <div className="form-floating mb-3">
+                  <input type="text" className="form-control" id="id" placeholder="ID" value={emailid} onChange={handleemailIdChange} />
+                  <label htmlFor="id">ID</label>
                 </div>
+              </div>
+      
+              <div className="input-box">
+                <span className="details">Password</span>
+                <div className="form-floating mb-3">
+                  <input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+                  <label htmlFor="password">Password</label>
+                </div>
+              </div>
             </div>
+      
+            <button onClick={login}>Login</button>
+      
+            <button className="button">
+              <Link className="linkxxx" to="/Signup">Sign Up</Link>
+            </button>
+          </div>
         </div>
-    );
+      );
+      
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import Navbar from "./components/navbar";
 import Signup from "./components/Signup";
 import Signin from "./components/Signin";
 import Mainpage from "./components/Mainpage";
@@ -8,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes, Link, Switch } from 'react-rout
 import { useEffect, useState } from "react";
 import Management from "./components/Management";
 import Society from "./components/Society";
+
 
 // Give server.js port and route.
 const API_BASE = 'http://localhost:4002/users';
@@ -37,6 +37,8 @@ export default function Home() {
   
   return (
     <>
+
+    {/* <Signup2/> */}
 
       <Router>
         <Routes>
