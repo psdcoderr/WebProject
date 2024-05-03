@@ -9,7 +9,7 @@ const ManagementRoute = require('./routes/management.route'); // Import user rou
 // Middleware (Used to parse data)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // Add this line to parse URL-encoded data
-app.use(cors({origin:"http://localhost:3002",
+app.use(cors({origin:"http://localhost:3000",
 credentials:true}));
 
 

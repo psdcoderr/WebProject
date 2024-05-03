@@ -17,13 +17,6 @@ const Table = () => {
           .catch(err => console.log(err))
       }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  if (items.length === 0) {
-    return <div>No data available</div>;
-  }
 
   return (
     <>
