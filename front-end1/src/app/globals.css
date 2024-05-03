@@ -146,3 +146,24 @@ form .user-details .input-box{
   }
 }
 
+
+
+/* Table */
+
+
+.table {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(199, 75, 75, 0.2); /* Add shadow */
+  margin: 0 auto; /* Center the table */
+  background-color: burlywood;
+}
+
+.table tbody {
+  padding-top: 20px; /* Add padding on the top */
+}
+
+
+.custom-width-table {
+
+  width: 80%;
+}
