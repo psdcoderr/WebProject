@@ -6,11 +6,11 @@ import Signin from "./components/Signin";
 import Mainpage from "./components/Mainpage";
 import { BrowserRouter as Router, Route, Routes, Link, Switch } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import Management from "./components/Management";
+import Management from "./components/Mentor";
 import Society from "./components/Society";
 
 // Give server.js port and route.
-const API_BASE = 'http://localhost:4002/users';
+const API_BASE = 'http://localhost:4003/users';
 
 export default function Home() {
 

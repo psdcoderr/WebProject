@@ -167,3 +167,29 @@ form .user-details .input-box{
 
   width: 80%;
 }
+
+/* Navbar */
+.navbar {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.nav-list {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #fff; /* Change the color as needed */
+}

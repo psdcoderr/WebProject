@@ -32,5 +32,5 @@ app.use((req, res, next) => {
     res.status(404).send({ error: "Not found" });
 });
 
-const PORT = process.env.PORT || 4002; // Change to 4001 or any other available port
+const PORT = process.env.PORT || 4006; // Change to 4001 or any other available port
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

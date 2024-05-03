@@ -9,7 +9,7 @@ const userRoute = require('./routes/cred.route'); // Import user route
 // Middleware (Used to parse data)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // Add this line to parse URL-encoded data
-app.use(cors({origin:"http://localhost:3000",
+app.use(cors({origin:"http://localhost:3002",
 credentials:true}));
 
 // Imp. Use this.
@@ -32,5 +32,5 @@ app.use((req, res, next) => {
     res.status(404).send({ error: "Not found" });
 });
 
-const PORT = process.env.PORT || 4002; // Change to 4001 or any other available port
+const PORT = process.env.PORT || 4003; // Change to 4001 or any other available port
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

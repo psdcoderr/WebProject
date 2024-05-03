@@ -3,17 +3,15 @@ const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
 
-const userRoute = require('./routes/cred.route'); // Import user route
+const ManagementRoute = require('./routes/management.route'); // Import user route
 
 
 // Middleware (Used to parse data)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // Add this line to parse URL-encoded data
-app.use(cors({origin:"http://localhost:3000",
+app.use(cors({origin:"http://localhost:3002",
 credentials:true}));
 
-// Imp. Use this.
-// Bycrypt JWT. 
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017', {
@@ -25,12 +23,12 @@ mongoose.connect('mongodb://localhost:27017', {
 .catch(err => console.log(err));
 
 // Routes
-app.use('/users', userRoute); // Use user route
+app.use('/management', ManagementRoute); // Use user route
 
 // Error handling middleware
 app.use((req, res, next) => {
     res.status(404).send({ error: "Not found" });
 });
 
-const PORT = process.env.PORT || 4002; // Change to 4001 or any other available port
+const PORT = process.env.PORT || 4005; // Change to 4001 or any other available port
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
