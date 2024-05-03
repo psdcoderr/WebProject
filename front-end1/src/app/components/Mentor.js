@@ -1,9 +1,10 @@
 import React from 'react'
+import Table from './TableManagement'
 
 export default function Management() {
   return (
     <div>
-        <h1>Management</h1>
+      <Table/>
     </div>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
+import Table from './TableManagement'
 
 export default function Society() {
   return (
     <div>
-      <h1>Society</h1>
+      <Table/>
     </div>
   )
 }
