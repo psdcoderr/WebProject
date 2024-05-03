@@ -40,16 +40,6 @@ export default function Signin() {
         setPassword(event.target.value);
     };
 
-    // const login = async () => {
-    //     const user = dataCred.find(user => user.emailid === emailid);
-        
-    //     if (user && user.password === password) {
-    //          // Redirect to Mainpage upon successful login
-    //          navigate('/Mainpage');
-    //     } else {
-    //         alert("Invalid email or password!");
-    //     }
-    // };
 
     const login = async () => {
         try {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './navbar';
+import Navbar from './Navbar';
 
-const API_BASE = 'http://localhost:4007/management';
+const API_BASE = 'http://localhost:4006/society';
 
 const Table = () => {
   const [items, setItems] = useState([]);
